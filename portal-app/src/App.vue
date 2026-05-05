@@ -62,12 +62,12 @@
         </div>
 
         <h2>
-          <span class="title-line">Halaman Portal Akses</span>
           <span class="title-line">
-            <span class="fuel-text">Proenergi Fuel</span>,
-            <span class="crs-text">CRS</span>, dan
-            <span class="helpdesk-text">Helpdesk</span>
-          </span>
+          <span class="fuel-text">Proenergi Fuel</span>,
+          <span class="crs-text">CRS</span>,
+          <span class="helpdesk-text">Helpdesk</span>, dan
+          <span class="jpayroll-text">JPayroll</span>
+        </span>
         </h2>
 
         <p class="hero-desc">
@@ -93,12 +93,18 @@
             <HelpdeskIcon class="btn-icon" />
             Masuk Helpdesk
           </button>
+
+          <button class="btn btn-jpayroll" @click="openApp(apps[3].url)">
+  <span class="btn-shine"></span>
+  <JPayrollIcon class="btn-icon" />
+  Masuk JPayroll
+</button>
         </div>
 
         <div class="hero-stats">
           <div class="stat-card">
             <div class="stat-icon">◆</div>
-            <strong>3</strong>
+            <strong>4</strong>
             <span>Core Systems</span>
           </div>
 
@@ -254,6 +260,46 @@ const HelpdeskIcon = {
   },
 }
 
+const JPayrollIcon = {
+  name: 'JPayrollIcon',
+  render() {
+    return h(
+      'svg',
+      {
+        viewBox: '0 0 24 24',
+        fill: 'none',
+        xmlns: 'http://www.w3.org/2000/svg',
+      },
+      [
+        h('path', {
+          d: 'M6 3H18C19.1046 3 20 3.89543 20 5V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V5C4 3.89543 4.89543 3 6 3Z',
+          stroke: 'currentColor',
+          'stroke-width': '1.8',
+          'stroke-linejoin': 'round',
+        }),
+        h('path', {
+          d: 'M8 8H16',
+          stroke: 'currentColor',
+          'stroke-width': '1.8',
+          'stroke-linecap': 'round',
+        }),
+        h('path', {
+          d: 'M8 12H13',
+          stroke: 'currentColor',
+          'stroke-width': '1.8',
+          'stroke-linecap': 'round',
+        }),
+        h('path', {
+          d: 'M8 16H11',
+          stroke: 'currentColor',
+          'stroke-width': '1.8',
+          'stroke-linecap': 'round',
+        }),
+      ]
+    )
+  },
+}
+
 const apps = [
   {
     name: 'Proenergi Fuel',
@@ -266,6 +312,11 @@ const apps = [
   {
     name: 'Helpdesk',
     url: 'https://helpdesk.proenergi.com',
+  },
+
+  {
+    name: 'JPayroll',
+    url: 'https://cloud.jpayroll.com:4433/4Z51H/id/#/login',
   },
 ]
 
@@ -709,6 +760,11 @@ onBeforeUnmount(() => {
   box-shadow: 0 20px 34px rgba(124, 58, 237, 0.2);
 }
 
+.btn-jpayroll {
+  background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+  box-shadow: 0 20px 34px rgba(14, 165, 233, 0.22);
+}
+
 .btn-icon {
   width: 20px;
   height: 20px;
@@ -760,6 +816,10 @@ onBeforeUnmount(() => {
 .stat-card span {
   font-size: 14px;
   color: var(--text-soft);
+}
+
+.jpayroll-text {
+  color: #0ea5e9;
 }
 
 /* footer */
